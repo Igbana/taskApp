@@ -1,0 +1,27 @@
+<HomeScreen>:
+    MDBoxLayout:
+        orientation: 'vertical'
+        padding: ('20dp', '0dp', '20dp', '0dp')
+        MDLabel:
+            markup: True
+            text: "[b][size=40]Tasks[/b][/size]"
+            size_hint_y: None
+            height: 80
+        ScrollView:
+            MDList:
+                id: lst
+                spacing: '10dp'
+        MDBoxLayout:
+            orientation: 'horizontal'
+            #padding: ('0dp', '0dp', '0dp', '0dp')
+            adaptive_height: True
+            MDTextField:
+                id: ent
+                hint_text: 'Enter task'
+                on_focus: True
+                on_text_validate:
+                    root.add_task()
+            MDIconButton:
+                icon: 'plus'
+                on_release:
+                    root.add_task()
